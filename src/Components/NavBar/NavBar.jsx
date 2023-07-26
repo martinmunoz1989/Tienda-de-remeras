@@ -17,8 +17,9 @@ const NavBar = () => {
                         <Nav.Link href="#pricing">Contacto</Nav.Link>
                     </Nav>
                 </Container>
+                <CartWidget />
             </Navbar>
-            <CartWidget />
+            
         </>
     );
 }
