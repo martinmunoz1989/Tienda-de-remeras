@@ -1,4 +1,4 @@
-import CartCss from './CartWidget.css' 
+import CartCss from '../../assets/CartWidget.css'
 import cart from './assets/cart.svg'
 const CartWidget = () => {
     return <div>
