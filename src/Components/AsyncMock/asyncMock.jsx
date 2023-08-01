@@ -4,7 +4,7 @@ const articulos = [
         id: 1,
         nombre: "Remera de Argentinos Juniors",
         precio: "$" + 1500,
-        imagen:{aaaj},
+        imagen:aaaj,
     }
 ]
 
@@ -16,4 +16,4 @@ export const listaProductos = () => {
     })
 }
 
-export default articulos
+export default listaProductos

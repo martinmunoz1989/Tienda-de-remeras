@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { listaProductos } from '../AsyncMock/AsyncMock';
+import { listaProductos } from '../AsyncMock/asyncMock';
 import { useEffect, useState } from 'react';
 
 function Articulo() {
