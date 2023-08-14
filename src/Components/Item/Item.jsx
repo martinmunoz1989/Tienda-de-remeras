@@ -44,21 +44,25 @@ function Articulo() {
     }
 
 
-    return articulos.map(articulo => (
-        <Card key={articulo.id} style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={articulo.imagen} />
-            <Card.Body>
-                <Card.Title>{articulo.nombre}</Card.Title>
-                <Card.Text>{articulo.precio}</Card.Text>
-                <div className="d-flex justify-content-center">
-                    <Button variant="dark" onClick={restar} >-</Button>
-                    <h6 className="d-flex align-items-center mx-2">{contador} </h6>
-                    <Button variant="dark" onClick={sumar}>+</Button>
-                </div>
-                <Button variant="dark" className='my-2' >Agregar al carrito</Button>
-            </Card.Body>
-        </Card>
-    ));
+    return (
+        <div className="d-flex flex-row flex-wrap">
+            {articulos.map(articulo => (
+                <Card key={articulo.id} style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={articulo.imagen} />
+                    <Card.Body>
+                        <Card.Title>{articulo.nombre}</Card.Title>
+                        <Card.Text>{articulo.precio}</Card.Text>
+                        <div className="d-flex justify-content-center">
+                            <Button variant="dark" onClick={restar} >-</Button>
+                            <h6 className="d-flex align-items-center mx-2">{contador} </h6>
+                            <Button variant="dark" onClick={sumar}>+</Button>
+                        </div>
+                        <Button variant="dark" className='my-2' >Agregar al carrito</Button>
+                    </Card.Body>
+                </Card>
+            ))}
+        </div>
+    );
 }
 
 export default Articulo;
