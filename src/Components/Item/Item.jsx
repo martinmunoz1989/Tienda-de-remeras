@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { listaProductos } from '../AsyncMock/asyncMock';
 import { useEffect, useState } from 'react';
+import ItemCount from '../ItemCount/itemCount';
 
 function Articulo() {
 
@@ -57,7 +58,7 @@ function Articulo() {
                             <h6 className="d-flex align-items-center mx-2">{contador} </h6>
                             <Button variant="dark" onClick={sumar}>+</Button>
                         </div>
-                        <Button variant="dark" className='my-2' >Agregar al carrito</Button>
+                        <ItemCount />
                     </Card.Body>
                 </Card>
             ))}
