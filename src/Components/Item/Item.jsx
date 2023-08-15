@@ -10,7 +10,7 @@ function Articulo() {
     const [articulos, setArticulos] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [contador, setContador] = useState(0);
+    //const [contador, setContador] = useState(0);
 
     useEffect(() => {
         listaProductos()
@@ -34,17 +34,6 @@ function Articulo() {
         return <h2>{error}</h2>;
     }
 
-    const sumar = () => {
-        setContador(contador + 1);
-    }
-
-    const restar = () => {
-        if (contador > 0) {
-            setContador(contador - 1);
-        }
-    }
-
-
     return (
         <div className="d-flex flex-row flex-wrap">
             {articulos.map(articulo => (
@@ -53,11 +42,6 @@ function Articulo() {
                     <Card.Body>
                         <Card.Title>{articulo.nombre}</Card.Title>
                         <Card.Text>{articulo.precio}</Card.Text>
-                        <div className="d-flex justify-content-center">
-                            <Button variant="dark" onClick={restar} >-</Button>
-                            <h6 className="d-flex align-items-center mx-2">{contador} </h6>
-                            <Button variant="dark" onClick={sumar}>+</Button>
-                        </div>
                         <ItemCount />
                     </Card.Body>
                 </Card>
