@@ -19,7 +19,7 @@ const NavBar = () => {
                         <Nav.Link as={Link} to="/Contacto">Contacto</Nav.Link>
                     </Nav>
                 </Container>
-                <Nav.Link as={Link} to="/carrito">{<CartWidget />}</Nav.Link>
+                <Nav.Link as={Link} to="/Carrito">{<CartWidget />}</Nav.Link>
                 
             </Navbar>
 
