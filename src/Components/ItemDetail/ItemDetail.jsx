@@ -4,7 +4,7 @@ function ItemDetail({ id, descripcion, precio }) {
 
     return (
         <div>
-            <Card key={id} style={{ width: '18rem' }}>
+            <Card key={id}>
                 <Card.Body>
                     <Card.Title>{descripcion}</Card.Title>
                     <Card.Text>{precio}</Card.Text>
