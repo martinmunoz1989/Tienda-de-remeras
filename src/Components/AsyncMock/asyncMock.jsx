@@ -3,26 +3,35 @@ import Bayern from '../../images/Bayern.svg';
 const articulos = [
     {
         id: 1,
-        nombre: "Remera de Argentinos Juniors",
+        descripcion: "Remera de Argentinos Juniors",
         precio: "$" + 1500,
         industria: "Nacional",
-        imagen:aaaj,
+        imagen: aaaj,
     },
     {
         id: 2,
-        nombre: "Remera de Bayer Munich",
+        descripcion: "Remera de Bayer Munich",
         precio: "$" + 4000,
         industria: "Internacional",
-        imagen:Bayern,
+        imagen: Bayern,
     }
 
 ]
 
 export const listaProductos = () => {
-    return new Promise((resolve) => {
+    return new Promise((res) => {
         setTimeout(() => {
-            resolve(articulos)
+            res(articulos)
         }, 3000)
+    })
+}
+
+export const listaProductosById = (articuloId) => {
+    return new Promise((res) => {
+        setTimeout(() => {
+            res(articulos.find(art => art.id === parseInt(articuloId)))
+        }, 1000)
+
     })
 }
 
