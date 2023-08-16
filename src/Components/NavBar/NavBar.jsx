@@ -1,5 +1,4 @@
 import CartWidget from "../CartWidget/CartWidget.jsx";
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -20,7 +19,8 @@ const NavBar = () => {
                         <Nav.Link as={Link} to="/Contacto">Contacto</Nav.Link>
                     </Nav>
                 </Container>
-                <CartWidget />
+                <Nav.Link as={Link} to="/carrito">{<CartWidget />}</Nav.Link>
+                
             </Navbar>
 
         </>

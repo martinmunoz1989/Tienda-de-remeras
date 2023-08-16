@@ -1,5 +1,5 @@
-function cart (){
-return <div>Carrito</div>
+function cart() {
+    return <NavBar />
 };
 
 export default cart;
