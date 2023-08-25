@@ -14,13 +14,14 @@ const NavBar = () => {
             <Navbar bg="dark" data-bs-theme="dark" id="NavBar">
                 <Container>
                     <Nav className="me-auto">
+                        <Nav.Link as={Link} to="/Home">Home</Nav.Link>
                         <Nav.Link as={Link} to="/Nacionales">Nacionales</Nav.Link>
                         <Nav.Link as={Link} to="/Internacionales">Internacionales</Nav.Link>
                         <Nav.Link as={Link} to="/Contacto">Contacto</Nav.Link>
                     </Nav>
                 </Container>
                 <Nav.Link as={Link} to="/Carrito">{<CartWidget />}</Nav.Link>
-                
+
             </Navbar>
 
         </>

@@ -15,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<App />} />
+          <Route exact path="/Home" element={<App />} />
           <Route exact path="/category/:id" element={<ItemListContainer />} />
           <Route exact path="/Carrito" element={<Cart />} />
           <Route exact path="/Nacionales" element={<Nacionales />} />
