@@ -25,7 +25,6 @@ const ItemListContainer = ({ greetings }) => {
     if (loading) {
         return <>
             <Loader />
-            <h1>Cargando el catalogo de productos !</h1>
         </>
     }
 
