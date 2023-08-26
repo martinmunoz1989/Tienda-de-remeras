@@ -1,6 +1,7 @@
 import ItemList from "../ItemList/ItemList";
 import { listaProductos } from '../AsyncMock/asyncMock';
 import { useEffect, useState } from 'react';
+import Loader from "../Loader";
 
 const ItemListContainer = ({ greetings }) => {
     const [articulos, setArticulos] = useState([]);
@@ -22,7 +23,10 @@ const ItemListContainer = ({ greetings }) => {
     }, []);
 
     if (loading) {
-        return <h1>Cargando el catalogo de productos !</h1>
+        return <>
+            <Loader />
+            <h1>Cargando el catalogo de productos !</h1>
+        </>
     }
 
     if (error) {
