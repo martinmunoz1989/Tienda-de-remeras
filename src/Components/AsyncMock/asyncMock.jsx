@@ -7,6 +7,7 @@ const articulos = [
         precio: "$" + 1500,
         industria: "Nacional",
         imagen: aaaj,
+        Stock: 15, 
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ const articulos = [
         precio: "$" + 4000,
         industria: "Internacional",
         imagen: Bayern,
+        Stock: 10,
     }
 
 ]
