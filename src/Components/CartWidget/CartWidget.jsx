@@ -9,8 +9,8 @@ const CartWidget = () => {
     console.log({ CartContext });
     return <div>
         <img src={cart} alt="cart-widget" id="cart-widget" />
-        <Badge>3</Badge>
-        
+        <Badge bg="white" text="dark">{CartContext.itemsCant}</Badge>
+
     </div>
 }
 

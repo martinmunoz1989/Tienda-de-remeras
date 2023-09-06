@@ -8,10 +8,10 @@ import NavBar from './Components/NavBar/NavBar.jsx'
 import Nacionales from './pages/Nacionales.jsx'
 import Internacionales from './pages/Internacionales.jsx'
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer.jsx'
-import { ItemsContext } from './context/CartContext.jsx'
+import ItemsProvider, { ItemsContext } from './context/CartContext.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ItemsContext.Provider value={[]}>
+    <ItemsProvider>
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<App />} />
@@ -23,6 +23,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           {/* <Route exact path="/Contacto" element={<Contacto/>}/> */}
         </Routes>
       </BrowserRouter>
-    </ItemsContext.Provider>
+    </ItemsProvider>
   </React.StrictMode>,
 );

@@ -1,7 +1,6 @@
 import Card from 'react-bootstrap/Card';
 
 function ItemDetail({ id, descripcion, precio }) {
-
     return (
         <div>
             <Card key={id}>

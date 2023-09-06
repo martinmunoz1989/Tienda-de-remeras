@@ -1,8 +1,9 @@
 import { Button } from "react-bootstrap";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ItemsContext } from "../../context/CartContext";
 
-function ItemCount({onAdd}) {
-
+function ItemCount({ onAdd }) {
+    const CartContext = useContext(ItemsContext);
     const [contador, setContador] = useState(0);
 
     const sumar = () => {
@@ -14,7 +15,12 @@ function ItemCount({onAdd}) {
             setContador(contador - 1);
         }
     }
-    
+
+    const agregarAlCarrito =() =>{
+        CartContext.sumarItemCant(contador);
+        onAdd(contador);
+    }
+
 
     return (
         <>
@@ -23,7 +29,7 @@ function ItemCount({onAdd}) {
                 <h6 className="d-flex align-items-center mx-2">{contador} </h6>
                 <Button variant="dark" onClick={sumar}>+</Button>
             </div>
-            <Button variant="dark" className='my-2' onClick={() => onAdd(contador)}>Agregar al carrito</Button>;
+            <Button variant="dark" className='my-2' onClick={agregarAlCarrito}>Agregar al carrito</Button>;
         </>
     );
 }
