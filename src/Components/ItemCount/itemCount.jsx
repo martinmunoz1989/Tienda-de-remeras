@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { ItemsContext } from "../../context/CartContext";
 
 
-function ItemCount({ onAdd }) {
+function ItemCount({id, imagen, descripcion, precio, onAdd }) {
     const CartContext = useContext(ItemsContext);
     const [contador, setContador] = useState(0);
 
@@ -20,7 +20,13 @@ function ItemCount({ onAdd }) {
 
     const agregarAlCarrito = () => {
         CartContext.sumarItemCant(contador);
-        onAdd(contador);
+        onAdd({
+            id,
+            imagen,
+            descripcion,
+            precio,
+            cantidad: contador
+        });
     }
 
 

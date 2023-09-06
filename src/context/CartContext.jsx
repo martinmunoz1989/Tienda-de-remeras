@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 
 export const ItemsContext = createContext({
+    cart: [],
     itemsCant: 0,
     sumarItemCant: () => { },
     restarItemCant: () => { }
@@ -8,7 +9,21 @@ export const ItemsContext = createContext({
 
 //se crea custom provider
 function ItemsProvider({ children }) {
-    const [itemsCant, setItemsCant] = useState(0)
+    const [cart, setCart] = useState([]);
+    const [itemsCant, setItemsCant] = useState(0);
+
+    //agrega al listado de items
+
+    const addItem = (agregarItem) => {
+        setCart([...cart, agregarItem]);
+        sumarItemCant();
+    }
+
+    const removeItem = (itemId) => {
+        const newItems = cart.filter(item => item.id !== itemId);
+        setCart(newItems);
+        restarItemCant();
+    }
 
     //incrementa item + 1
     const sumarItemCant = (cantidad = 1) => {
@@ -23,7 +38,10 @@ function ItemsProvider({ children }) {
 
     return <ItemsContext.Provider
         value={{
+            cart: cart,
             itemsCant: itemsCant,
+            addItem: addItem,
+            removeItem: removeItem,
             sumarItemCant: sumarItemCant,
             restarItemCant: restarItemCant,
 

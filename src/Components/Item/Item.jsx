@@ -3,9 +3,12 @@ import ItemCount from '../ItemCount/itemCount';
 import { Button, Toast } from 'react-bootstrap';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { ItemsContext } from '../../context/CartContext';
 
 
 function Articulo({ id, imagen, descripcion, precio }) {
+    const CartContext = useContext(ItemsContext);
     // para al hacer click manejar el evento
     const [verDetalle, setVerDetalle] = useState(false)
     const [showToast, setShowToast] = useState(false);
@@ -19,10 +22,17 @@ function Articulo({ id, imagen, descripcion, precio }) {
                     <Button variant="dark" onClick={() => setVerDetalle(true)}>Ver detalle</Button>
                 )}
                 {verDetalle && <ItemDetail id={id} descripcion={descripcion} precio={precio} />}
-                <ItemCount onAdd={(contador) => {
-                    setShowToast(true);
-                    setCantAgregada(contador);
-                }} />
+                <ItemCount
+                    id={id}
+                    imagen={imagen}
+                    descripcion={descripcion}
+                    precio={precio}
+                    onAdd={(cantAgregada) => {
+                        setShowToast(true);
+                        setCantAgregada(cantAgregada.cantidad);
+                        CartContext.addItem(cantAgregada);
+                    }}
+                />
             </Card.Body>
             <Toast
                 onClose={() => setShowToast(false)}
