@@ -36,7 +36,7 @@ function Articulo({ id, imagen, descripcion, precio }) {
             </Card.Body>
             <Toast
                 onClose={() => setShowToast(false)}
-                show={showToast}
+                show={showToast && cantAgregada > 0}
                 delay={3000}
                 autohide
                 style={{
@@ -49,7 +49,9 @@ function Articulo({ id, imagen, descripcion, precio }) {
                 <Toast.Header>
                     <strong className="me-auto">Notificación</strong>
                 </Toast.Header>
-                <Toast.Body>Has agregado {cantAgregada} unidades al carrito</Toast.Body>
+                {cantAgregada > 0 && (
+                    <Toast.Body>Has agregado {cantAgregada} unidades al carrito</Toast.Body>
+                )}
             </Toast>
 
 

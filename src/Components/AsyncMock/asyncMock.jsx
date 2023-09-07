@@ -4,7 +4,7 @@ const articulos = [
     {
         id: 1,
         descripcion: "Remera de Argentinos Juniors",
-        precio: "$" + 1500,
+        precio: 15000,
         industria: "Nacional",
         imagen: aaaj,
         Stock: 15, 
@@ -12,7 +12,7 @@ const articulos = [
     {
         id: 2,
         descripcion: "Remera de Bayer Munich",
-        precio: "$" + 4000,
+        precio: 25000,
         industria: "Internacional",
         imagen: Bayern,
         Stock: 10,
@@ -24,7 +24,7 @@ export const listaProductos = () => {
     return new Promise((res) => {
         setTimeout(() => {
             res(articulos)
-        }, 3000)
+        }, 2000)
     })
 }
 
@@ -44,7 +44,7 @@ export const listaProductosNacionales = () => {
         setTimeout(() => {
             const productosNacionales = articulos.filter(articulo => articulo.industria === "Nacional");
             res(productosNacionales);
-        }, 3000)
+        }, 2000)
     })
 }
 
@@ -54,7 +54,7 @@ export const listaProductosInternacionales = () => {
         setTimeout(() => {
             const productosImportados = articulos.filter(articulo => articulo.industria === "Internacional");
             res(productosImportados);
-        }, 3000)
+        }, 2000)
     })
 }
 

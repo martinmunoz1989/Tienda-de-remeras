@@ -1,10 +1,7 @@
 import { Button } from "react-bootstrap";
-import { useContext, useState } from "react";
-import { ItemsContext } from "../../context/CartContext";
+import { useState } from "react";
 
-
-function ItemCount({id, imagen, descripcion, precio, onAdd }) {
-    const CartContext = useContext(ItemsContext);
+function ItemCount({ id, imagen, descripcion, precio, onAdd }) {
     const [contador, setContador] = useState(0);
 
 
@@ -19,7 +16,6 @@ function ItemCount({id, imagen, descripcion, precio, onAdd }) {
     }
 
     const agregarAlCarrito = () => {
-        CartContext.sumarItemCant(contador);
         onAdd({
             id,
             imagen,
