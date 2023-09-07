@@ -1,5 +1,5 @@
 import aaaj from '../../images/aaaj.jpg';
-import Bayern from '../../images/Bayern.svg';
+import Bayern from '../../images/Bayern.jpg';
 import River from '../../images/River-plate.jpg'
 import Boca from '../../images/Boca-juniors.jpg'
 import Chicago from '../../images/nueva-chicago.jpg'
