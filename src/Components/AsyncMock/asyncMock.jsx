@@ -1,6 +1,6 @@
 import aaaj from '../../images/aaaj.jpg';
 import Bayern from '../../images/bayern.jpg';
-import River from '../../images/River-plate.jpg'
+import River from '../../images/river-plate.jpg'
 import Boca from '../../images/boca-juniors.jpg'
 import Chicago from '../../images/nueva-chicago.jpg'
 import Barcelona from '../../images/barcelona.jpg'
