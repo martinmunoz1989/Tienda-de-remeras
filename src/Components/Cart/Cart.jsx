@@ -4,7 +4,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { ItemsContext } from "../../context/CartContext";
 import NavBar from "../NavBar/NavBar";
 import { Button} from "react-bootstrap";
-import "../Cart/cart.css"
+import "../Cart/Cart.css"
 
 const Cart = () => {
 
