@@ -4,10 +4,11 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { ItemsContext } from "../../context/CartContext";
 import NavBar from "../NavBar/NavBar";
 import { Button } from "react-bootstrap";
+import "../Cart/cart.css"
 
 const Cart = () => {
 
-    const { cart, itemsCant, clearCart } = useContext(ItemsContext);
+    const { cart, itemsCant, clearCart, } = useContext(ItemsContext);
 
     if (itemsCant === 0) {
         return (
@@ -26,20 +27,17 @@ const Cart = () => {
             <NavBar />
             <div>
                 {cart.map(item => (
-                    <div key={item.id}>
-                        <ItemDetail {...item} />
-                        <p>Cantidad: {item.cantidad}</p>
+                    <div key={item.id} className="d-flex align-items-center justify-content-center  mb-3">
+                        <ItemDetail {...item} className="button-spacing mr-3" />
+                        <p className="mr-3">Cantidad: {item.cantidad}</p>
                     </div>
                 ))}
-                <div>
-                    <h3>Total:${totalPrecio}</h3>
-                    <Button onClick={() => clearCart()}>Vaciar Carrito</Button>
-                </div>
-                <div>
-                    <Link className="btn btn-primary" to="/Checkout">Checkout</Link>
+                <h3>TOTAL: ${totalPrecio}</h3>
+                <div className="d-flex justify-content-center my-3">
+                    <Button onClick={() => clearCart()} className="button-spacing mr-2" variant="dark">Vaciar Carrito</Button>
+                    <Link className="btn btn-dark" bg="black" to="/Checkout">Checkout</Link>
                 </div>
             </div>
-
         </div>
     );
 

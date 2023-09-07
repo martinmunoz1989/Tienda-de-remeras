@@ -15,8 +15,8 @@ function Articulo({ id, imagen, descripcion, precio }) {
     const [cantAgregada, setCantAgregada] = useState(0);
 
     return (
-        <Card key={id} style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={imagen} />
+        <Card key={id} style={{ width: '288px', height: '450px' }}>
+            <Card.Img variant="top" src={imagen} style={{ maxHeight: '60%' }} />
             <Card.Body>
                 {!verDetalle && (
                     <Button variant="dark" onClick={() => setVerDetalle(true)}>Ver detalle</Button>

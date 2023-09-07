@@ -16,12 +16,17 @@ function Nacionales() {
             })
     }, [])
     return (
-        <div>
+        <div className="d-flex flex-column min-vh-100">
             <NavBar />
-            <div>
-                {articulo.map(art => (
-                    <Articulo key={art.id} {...art} />
-                ))}
+            <h1>INDUSTRIA NACIONAL</h1>
+            <div className="container my-auto">
+                <div className="row g-3 justify-content-center">
+                    {articulo.map(art => (
+                        <div className="col-sm-6 col-lg-3 mb-3" key={art.id}>
+                            <Articulo {...art} />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )
