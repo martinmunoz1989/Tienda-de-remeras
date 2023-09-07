@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
 import { ItemsContext } from '../../context/CartContext'
-import CheckoutForm from '../CheckoutForm/Checkoutform'
+import CheckoutForm from '../../Components/CheckoutForm/CheckoutForm'
 import NavBar from '../NavBar/NavBar'
 
 const Checkout = () => {
