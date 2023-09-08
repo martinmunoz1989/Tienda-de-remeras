@@ -1,10 +1,15 @@
 body {
   margin: 0;
-  padding:0;
+  padding: 0;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  
+  margin-top: 100px;
+  background-image: url('../src/images/campo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
 }
 
 h1 {
