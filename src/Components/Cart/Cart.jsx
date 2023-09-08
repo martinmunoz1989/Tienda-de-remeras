@@ -30,7 +30,7 @@ const Cart = () => {
             <div>
                 {cart.map(item => (
                     <div key={item.id} className="d-flex align-items-center justify-content-center mb-3">
-                        <ItemDetail {...item} showCloseButton={false} className="button-spacing mr-3" />
+                        <ItemDetail {...item} verStock={false} showCloseButton={false} className="button-spacing mr-3" />
                         <p className="mr-3">Cantidad: {item.cantidad}</p>
                         <button onClick={() => removeItem(item.id)}>Eliminar</button>
                     </div>

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { obtenerURLImagen } from '../../firebase/client.jsx'; // Ajusta la ruta según tu estructura de archivos.
+import { obtenerURLImagen } from '../../firebase/client.jsx';
 import { ItemsContext } from '../../context/CartContext';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -32,24 +32,30 @@ function Articulo({ id, imagen, descripcion, precio, stock }) {
         traerImagen();
     }, [imagen]);
 
-    const imagenPlaceholder = 'URL_de_tu_imagen_predeterminada.jpg'; // Reemplaza esto con la URL de tu imagen predeterminada.
+    const imagenPlaceholder = 'imagen_predeterminada.jpg';
 
     return (
         <Card key={id} style={{ width: '288px', height: '450px' }}>
-            <Card.Img variant="top" src={urlImagen || imagenPlaceholder} style={{ maxHeight: '60%' }} />
+            {!verDetalle && (
+                <Card.Img variant="top" src={urlImagen || imagenPlaceholder} style={{ maxHeight: '60%' }} />
+            )}
             <Card.Body>
                 {!verDetalle ? (
-                    <Button variant="dark" onClick={toggleDetalle}>
-                        Ver detalle
-                    </Button>
+                    <div className="mb-3">
+                        <Button variant="dark" onClick={toggleDetalle}>
+                            Ver detalle
+                        </Button>
+                    </div>
                 ) : (
-                    <ItemDetail
-                        id={id}
-                        descripcion={descripcion}
-                        precio={precio}
-                        stock={stock}
-                        onClose={toggleDetalle}
-                    />
+                    <div className="mb-3">
+                        <ItemDetail
+                            id={id}
+                            descripcion={descripcion}
+                            precio={precio}
+                            stock={stock}
+                            onClose={toggleDetalle}
+                        />
+                    </div>
                 )}
                 <ItemCount
                     id={id}
@@ -64,6 +70,7 @@ function Articulo({ id, imagen, descripcion, precio, stock }) {
                     }}
                 />
             </Card.Body>
+
             <Toast
                 onClose={() => setShowToast(false)}
                 show={showToast && cantAgregada > 0}
@@ -74,6 +81,7 @@ function Articulo({ id, imagen, descripcion, precio, stock }) {
                     top: 0,
                     left: '50%',
                     transform: 'translateX(-50%)',
+                    zIndex: 9999,
                 }}
             >
                 <Toast.Header>

@@ -32,7 +32,11 @@ export const firestore = getFirestore(app);
 
 export const storage = getStorage(app);
 
-export async function obtenerURLImagen(rutaImagen) {
-    const referenciaImagen = ref(storage, rutaImagen);
+// Función para obtener la URL de las imágenes en la carpeta "productos"
+export async function obtenerURLImagen(nombreImagen) {
+
+    const rutaCompleta = `productos/${nombreImagen}`;
+    const referenciaImagen = ref(storage, rutaCompleta);
+
     return getDownloadURL(referenciaImagen);
 }

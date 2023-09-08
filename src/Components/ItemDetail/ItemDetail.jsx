@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-function ItemDetail({ id, descripcion, precio, stock, onClose, showCloseButton = true }) {
+function ItemDetail({ id, descripcion, precio, stock, onClose, showCloseButton = true, verStock = true }) {
 
     return (
         <div>
@@ -24,16 +24,26 @@ function ItemDetail({ id, descripcion, precio, stock, onClose, showCloseButton =
                     </Button>
                 )}
                 <Card.Body>
-                    <Card.Title>{descripcion}</Card.Title>
+                    <Card.Title
+                        style={{
+                            paddingRight: '0px',
+                            paddingLeft: '0px',
+                        }}
+                    >
+                        {descripcion}
+                    </Card.Title>
                     <Card.Text>
                         Precio: ${precio}
                     </Card.Text>
-                    <Card.Text>
-                        Stock: {stock}
-                    </Card.Text>
+                    {verStock && (
+                        <Card.Text>
+                            Stock: {stock}
+                        </Card.Text>
+                    )}
                 </Card.Body>
+
             </Card>
-        </div>
+        </div >
     );
 }
 

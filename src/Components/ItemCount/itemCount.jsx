@@ -6,10 +6,10 @@ function ItemCount({ id, imagen, descripcion, precio, stock, onAdd }) {
 
 
     const sumar = () => {
-        if(contador < stock){
-        setContador(contador + 1);
+        if (contador < stock) {
+            setContador(contador + 1);
+        }
     }
-}
     const restar = () => {
         if (contador > 0) {
             setContador(contador - 1);
