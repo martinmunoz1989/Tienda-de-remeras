@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Form, Button, Container, Alert } from 'react-bootstrap';
-import '../../styles/Styles.css'
+import '../../styles/styles.css'
 
 const CheckoutForm = ({ onConfirm }) => {
     const [nombre, setnombre] = useState('')

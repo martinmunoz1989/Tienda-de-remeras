@@ -5,7 +5,7 @@ import NavBar from '../NavBar/NavBar';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import '../Checkout/Checkout.css'
-import '../../styles/Styles.css'
+import '../../styles/styles.css'
 
 const Checkout = () => {
     const [orderId, setOrderId] = useState('');
