@@ -3,7 +3,7 @@ import NavBar from "../Components/NavBar/NavBar";
 import Articulo from "../Components/Item/Item";
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import { firestore } from '../firebase/client';
-import '../styles/Styles.css'
+import '../styles/styles.css'
 
 function Internacionales() {
     const [articulo, setArticulo] = useState([])
