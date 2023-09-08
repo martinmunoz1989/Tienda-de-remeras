@@ -5,6 +5,7 @@ import NavBar from '../NavBar/NavBar';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import '../Checkout/Checkout.css'
+import '../../styles/Styles.css'
 
 const Checkout = () => {
     const [orderId, setOrderId] = useState('');
@@ -25,7 +26,7 @@ const Checkout = () => {
             <>
                 <NavBar />
                 <div className="checkout">
-                    <h1>El código de seguimiento de su orden es: {orderId}</h1>
+                    <h1 className='title-style no-border'>El código de seguimiento de su orden es: {orderId}</h1>
                     <h2>¡Gracias por su compra!</h2>
                     <Link to='/'>
                         <Button variant="dark">Regresar al Catálogo</Button>
@@ -40,7 +41,7 @@ const Checkout = () => {
     return (
         <div>
             <NavBar />
-            <h1>Completa los datos para finalizar la compra</h1>
+            <h1 className='title-style no-border roboto-font'>Completa los datos para finalizar la compra</h1>
             <CheckoutForm onConfirm={handleClickOrderConfirmation} />
         </div>
     );

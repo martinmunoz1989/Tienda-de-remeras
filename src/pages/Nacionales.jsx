@@ -3,6 +3,7 @@ import NavBar from "../Components/NavBar/NavBar";
 import Articulo from "../Components/Item/Item";
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import { firestore } from '../firebase/client';
+import '../styles/Styles.css'
 
 
 
@@ -27,7 +28,7 @@ function Nacionales() {
     return (
         <div className="d-flex flex-column min-vh-100">
             <NavBar />
-            <h1>INDUSTRIA NACIONAL</h1>
+            <h1 className='title-style no-border roboto-font'>INDUSTRIA NACIONAL</h1>
             <div className="container my-auto">
                 <div className="row g-3 justify-content-center">
                     {articulo.map(art => (

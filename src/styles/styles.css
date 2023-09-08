@@ -1,0 +1,20 @@
+.title-style {
+    font-size: 2em;
+    font-weight: bold;
+    color: #070505;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    padding: 10px 0;
+    border-bottom: 2px solid #ddd;
+    font-weight: 800; 
+    text-decoration: underline; 
+}
+
+.no-border {
+    border-bottom: none !important; 
+}
+
+.roboto-font {
+    font-family: 'Roboto', sans-serif;
+}
