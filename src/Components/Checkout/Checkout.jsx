@@ -1,36 +1,41 @@
-import { useState, useContext } from 'react'
-import { ItemsContext } from '../../context/CartContext'
-import CheckoutForm from '../../Components/CheckoutForm/CheckoutForm'
-import NavBar from '../NavBar/NavBar'
+import { useState, useContext } from 'react';
+import { ItemsContext } from '../../context/CartContext';
+import CheckoutForm from '../../Components/CheckoutForm/CheckoutForm';
+import NavBar from '../NavBar/NavBar';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const Checkout = () => {
-    const [orderId, setOrderId] = useState('')
-    const { cart, total, clearCart } = useContext(ItemsContext)
+    const [orderId, setOrderId] = useState('');
+    const { clearCart, purchaseCart } = useContext(ItemsContext);
 
-    const createOrder = ({ name, phone, email }) => {
-        // Simplemente imprimimos los datos para visualizarlos. 
-        // Puedes hacer cualquier otra lógica que necesites con estos datos.
-        console.log('Datos del formulario:', { name, phone, email, cart, total });
-
-        // Por simplicidad, generamos un ID de orden aleatorio.
-        const generatedOrderId = `ORD-${Math.floor(Math.random() * 1000000)}`;
-        setOrderId(generatedOrderId);
-
-        clearCart();  // Si deseas limpiar el carrito después de crear la orden.
-    }
+    const handleClickOrderConfirmation = async (buyer) => {
+        try {
+            const realOrderId = await purchaseCart(buyer);
+            setOrderId(realOrderId);
+            clearCart();
+        } catch (error) {
+            console.error("Hubo un error al guardar la orden:", error);
+        }
+    };
 
     if (orderId) {
-        return <>
-            <NavBar />
-            <h1>El código de seguimiento de su orden es: {orderId}</h1>
-        </>
+        return (
+            <>
+                <NavBar />
+                <h1>El código de seguimiento de su orden es: {orderId}</h1>
+                <Link to='/'>
+                    <Button variant="dark">Regresar al Catalogo</Button>
+                </Link>
+            </>
+        );
     }
 
     return (
         <div>
             <NavBar />
             <h1>Checkout</h1>
-            <CheckoutForm onConfirm={createOrder} />
+            <CheckoutForm onConfirm={handleClickOrderConfirmation} />
         </div>
     );
 }

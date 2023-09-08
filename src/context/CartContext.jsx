@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+import { addDoc, collection } from "firebase/firestore";
+import { firestore } from "../firebase/client";
 
 export const ItemsContext = createContext({
     cart: [],
@@ -11,6 +13,7 @@ export const ItemsContext = createContext({
 function ItemsProvider({ children }) {
     const [cart, setCart] = useState([]);
     const [itemsCant, setItemsCant] = useState(0);
+    const [order, setOrder] = useState({})
 
     //agrega al listado de items
 
@@ -56,12 +59,34 @@ function ItemsProvider({ children }) {
     const restarItemCant = (cantidad = 1) => {
         setItemsCant(prevItemsCant => prevItemsCant - cantidad);
     };
-    
+
 
     const clearCart = () => {
         setCart([]);         // Vacío el carrito
         setItemsCant(0);     // Reseteo el contador de items
     };
+
+    const purchaseCart = async (buyer) => {
+        const itemsData = cart.map(item => ({
+            id: item.id,
+            descripcion: item.descripcion,
+            precio: item.precio,
+        }));
+    
+        const totalValue = cart.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
+    
+        const orderData = {
+            buyer,
+            items: itemsData,
+            total: totalValue,
+        };
+    
+        const ordersRef = collection(firestore, "Orders");
+    
+        const docRef = await addDoc(ordersRef, orderData);
+        return docRef.id;  // Trae el ID del documento creado en Firestore
+    }
+    
 
     return <ItemsContext.Provider
         value={{
@@ -72,7 +97,7 @@ function ItemsProvider({ children }) {
             sumarItemCant: sumarItemCant,
             restarItemCant: restarItemCant,
             clearCart: clearCart,
-
+            purchaseCart: purchaseCart,
         }}>
         {children}
     </ItemsContext.Provider>
