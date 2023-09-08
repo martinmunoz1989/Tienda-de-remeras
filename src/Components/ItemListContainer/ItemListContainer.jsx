@@ -1,6 +1,7 @@
 import ItemList from "../ItemList/ItemList";
-import { listaProductos } from '../AsyncMock/asyncMock';
+import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
+import { firestore } from "../../firebase/client";
 import Loader from "../Loader";
 
 const ItemListContainer = ({ greetings }) => {
@@ -8,19 +9,37 @@ const ItemListContainer = ({ greetings }) => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
+
     useEffect(() => {
-        listaProductos()
-            .then(result => {
-                setArticulos(result);
-            })
-            .catch(() => {
-                setError("No pudimos cargar los articulos");
-            })
+        const collectionRef = collection(firestore, "Productos");
+        getDocs(collectionRef).then(snapshot => {
+            const itemsArray = [];
+            snapshot.forEach((doc) => {
+                const itemData = doc.data();
+                itemsArray.push({
+                    id: doc.id, 
+                    ...itemData
+                });
+            });
+            setArticulos(itemsArray); 
+        })
+            .catch(() => setError("No pudimos cargar los articulos"))
             .finally(() => {
                 setLoading(false);
-            })
-
+            });
     }, []);
+
+    /*listaProductos()
+        .then(result => {
+            setArticulos(result);
+        })
+        .catch(() => {
+            setError("No pudimos cargar los articulos");
+        })
+        .finally(() => {
+            setLoading(false);
+        })*/
+
 
     if (loading) {
         return <>

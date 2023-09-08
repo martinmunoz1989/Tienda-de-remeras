@@ -10,10 +10,10 @@ const articulos = [
     {
         id: 1,
         descripcion: "Remera titular de Argentinos Juniors",
-        precio: 15000,
-        industria: "Nacional",
         imagen: aaaj,
-        Stock: 15, 
+        industria: "Nacional",
+        precio: 15000,
+        Stock: 15,
     },
     {
         id: 2,
@@ -71,7 +71,7 @@ const articulos = [
         imagen: Bayern,
         Stock: 10,
     },
-    
+
 ]
 
 export const listaProductos = () => {
