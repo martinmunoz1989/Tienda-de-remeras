@@ -21,7 +21,7 @@ Bienvenido a mi proyecto de tienda e-commerce, desarrollado con React. Esta tien
 
 ## Instalación y Uso 📦
 
-1. Clona este repositorio a tu máquina local usando `https://github.com/TU-USUARIO/tienda-camisetas-futbol.git` <!-- Reemplaza "TU-USUARIO" y "tienda-camisetas-futbol" con tu usuario y nombre de repositorio. -->
+1. Clona este repositorio a tu máquina local usando `https://github.com/martinmunoz1989/tienda-camisetas-futbol.git
 2. Navega a la carpeta del proyecto: `cd tienda-camisetas-futbol`.
 3. Instala las dependencias: `npm install`.
 4. Ejecuta el proyecto en modo desarrollo: `npm start`.
