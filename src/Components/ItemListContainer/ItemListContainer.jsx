@@ -3,7 +3,6 @@ import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { firestore } from "../../firebase/client";
 import Loader from "../Loader";
-import '../Cart/cart.css'
 import '../../styles/styles.css'
 
 const ItemListContainer = ({ greetings }) => {
