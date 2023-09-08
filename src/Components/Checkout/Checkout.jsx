@@ -4,6 +4,7 @@ import CheckoutForm from '../../Components/CheckoutForm/CheckoutForm';
 import NavBar from '../NavBar/NavBar';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import '../Checkout/Checkout.css'
 
 const Checkout = () => {
     const [orderId, setOrderId] = useState('');
@@ -23,12 +24,17 @@ const Checkout = () => {
         return (
             <>
                 <NavBar />
-                <h1>El código de seguimiento de su orden es: {orderId}</h1>
-                <Link to='/'>
-                    <Button variant="dark">Regresar al Catalogo</Button>
-                </Link>
+                <div className="checkout">
+                    <h1>El código de seguimiento de su orden es: {orderId}</h1>
+                    <h2>¡Gracias por su compra!</h2>
+                    <Link to='/'>
+                        <Button variant="dark">Regresar al Catálogo</Button>
+                    </Link>
+                </div>
             </>
         );
+        
+        
     }
 
     return (

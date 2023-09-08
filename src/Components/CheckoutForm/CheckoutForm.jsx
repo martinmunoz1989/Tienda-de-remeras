@@ -52,7 +52,7 @@ const CheckoutForm = ({ onConfirm }) => {
                     <Form.Control
                         type="text"
                         value={telefono}
-                        placeholder="Escriba su número"
+                        placeholder="Escriba su número empezando con 11"
                         onChange={({ target }) => settelefono(target.value)}
                     />
                 </Form.Group>
@@ -67,7 +67,7 @@ const CheckoutForm = ({ onConfirm }) => {
                     />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="dark" type="submit">
                     Crear Orden
                 </Button>
             </Form>

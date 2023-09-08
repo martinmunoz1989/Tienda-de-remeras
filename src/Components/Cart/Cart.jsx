@@ -32,7 +32,7 @@ const Cart = () => {
                     <div key={item.id} className="d-flex align-items-center justify-content-center mb-3">
                         <ItemDetail {...item} verStock={false} showCloseButton={false} className="button-spacing mr-3" />
                         <p className="mr-3">Cantidad: {item.cantidad}</p>
-                        <button onClick={() => removeItem(item.id)}>Eliminar</button>
+                        <Button className="btn btn-dark" bg="black" onClick={() => removeItem(item.id)}>Eliminar</Button>
                     </div>
                 ))}
                 {itemsCant > 0 ? (
@@ -43,7 +43,7 @@ const Cart = () => {
 
                 <div className="d-flex justify-content-center my-3">
                     <Button onClick={() => clearCart()} className="button-spacing mr-2" variant="dark">Vaciar Carrito</Button>
-                    <Link className="btn btn-dark" bg="black" to="/Checkout">Checkout</Link>
+                    <Link className="btn btn-dark" bg="black" to="/Checkout">Finalizar compra</Link>
                 </div>
             </div>
         </div>
