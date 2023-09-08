@@ -2,8 +2,11 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import {getFirestore} from "firebase/firestore"
-import {getStorage} from "firebase/storage"
+import { getFirestore } from "firebase/firestore"
+import { getStorage, uploadBytes } from "firebase/storage"
+import { ref, getDownloadURL } from "firebase/storage";
+
+
 // Your web app's Firebase configuration
 const apiKey = import.meta.env.VITE_apiKey;
 const authDomain = import.meta.env.VITE_authDomain;
@@ -28,3 +31,8 @@ const app = initializeApp(firebaseConfig);
 export const firestore = getFirestore(app);
 
 export const storage = getStorage(app);
+
+export async function obtenerURLImagen(rutaImagen) {
+    const referenciaImagen = ref(storage, rutaImagen);
+    return getDownloadURL(referenciaImagen);
+}
