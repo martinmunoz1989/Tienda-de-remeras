@@ -1,6 +1,3 @@
-¡Por supuesto! Aquí te dejo un ejemplo básico de cómo podría ser el archivo `README.md` para tu proyecto:
-
----
 
 # Tienda E-Commerce de Camisetas de Fútbol
 
