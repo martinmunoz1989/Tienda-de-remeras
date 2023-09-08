@@ -2,17 +2,32 @@ import React, { useState, useEffect } from 'react';
 import NavBar from "../Components/NavBar/NavBar";
 import { listaProductosInternacionales } from "../Components/AsyncMock/asyncMock";
 import Articulo from "../Components/Item/Item";
+import { getDocs, collection, query, where } from 'firebase/firestore';
+import { firestore } from '../firebase/client';
 
 function Internacionales() {
     const [articulo, setArticulo] = useState([])
     useEffect(() => {
-        listaProductosInternacionales()
-            .then(response => {
-                setArticulo(response)
+        const q = query(collection(firestore, "Productos"), where("industria", "==", "Internacional"))
+        getDocs(q).then(snapshot => {
+            const articulosNacionales = [];
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                articulosNacionales.push({ id: doc.id, ...data })
             })
+            setArticulo(articulosNacionales)
+        })
             .catch(error => {
-                console.error(error)
-            })
+                console.error("Error al recuperar productos internacionales", error);
+            });
+
+        /* listaProductosInternacionales()
+             .then(response => {
+                 setArticulo(response)
+             })
+             .catch(error => {
+                 console.error(error)
+             })*/
     }, [])
 
     return (
