@@ -14,7 +14,7 @@ const Cart = () => {
         return (
             <div><NavBar />
                 <div>
-                    <h1>No hay items en el carrito</h1>
+                    <h1 className="title-style no-border">No hay items en el carrito</h1>
                     <Link to='/'>
                         <Button variant="dark">Regresar al Catalogo</Button>
                     </Link>
@@ -27,12 +27,19 @@ const Cart = () => {
     return (
         <div>
             <NavBar />
-            <div>
+            <div className="container-fluid">
+                <h2 className="title-style">DETALLE DEL PEDIDO</h2>
                 {cart.map(item => (
-                    <div key={item.id} className="d-flex align-items-center justify-content-center mb-3">
-                        <ItemDetail {...item} verStock={false} showCloseButton={false} className="button-spacing mr-3" />
-                        <p className="mr-3">Cantidad: {item.cantidad}</p>
-                        <Button className="btn btn-dark" bg="black" onClick={() => removeItem(item.id)}>Eliminar</Button>
+                    <div key={item.id} className="d-flex align-items-center justify-content-center mb-3 item-detail-background">
+                        <div className="flex-grow-1 mr-3">
+                            <ItemDetail {...item} verStock={false} showCloseButton={false} className="button-spacing w-100" />
+                        </div>
+                        <div className="mr-3 cantidad-style">
+                            <p>Cantidad: {item.cantidad}</p>
+                        </div>
+                        <div style={{ marginTop: '-10px' }}>
+                            <Button className="btn btn-dark" bg="black" onClick={() => removeItem(item.id)}>Eliminar</Button>
+                        </div>
                     </div>
                 ))}
                 {itemsCant > 0 ? (
@@ -48,6 +55,7 @@ const Cart = () => {
             </div>
         </div>
     );
+
 
 
 }

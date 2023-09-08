@@ -6,3 +6,31 @@
     width: 100vw;
     box-sizing: border-box;
 }
+
+
+.title-style {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    padding: 10px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.no-border {
+    border-bottom: none !important; 
+}
+
+.item-detail-background {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cantidad-style p {
+    font-weight: bold;
+    color: #333;
+}
