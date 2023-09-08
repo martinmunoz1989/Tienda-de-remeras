@@ -11,6 +11,9 @@ const ItemListContainer = ({ greetings }) => {
 
 
     useEffect(() => {
+
+        //obtengo toda la collection de firestore  
+        
         const collectionRef = collection(firestore, "Productos");
         getDocs(collectionRef).then(snapshot => {
             const itemsArray = [];

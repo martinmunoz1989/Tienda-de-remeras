@@ -8,6 +8,8 @@ import { firestore } from '../firebase/client';
 function Internacionales() {
     const [articulo, setArticulo] = useState([])
     useEffect(() => {
+
+        //obtengo datos filtrados de firestore
         const q = query(collection(firestore, "Productos"), where("industria", "==", "Internacional"))
         getDocs(q).then(snapshot => {
             const articulosNacionales = [];
@@ -20,15 +22,7 @@ function Internacionales() {
             .catch(error => {
                 console.error("Error al recuperar productos internacionales", error);
             });
-
-        /* listaProductosInternacionales()
-             .then(response => {
-                 setArticulo(response)
-             })
-             .catch(error => {
-                 console.error(error)
-             })*/
-    }, [])
+        }, [])
 
     return (
         <div className="d-flex flex-column min-vh-100">

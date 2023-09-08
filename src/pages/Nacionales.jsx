@@ -10,7 +10,7 @@ import { firestore } from '../firebase/client';
 function Nacionales() {
     const [articulo, setArticulo] = useState([])
     useEffect(() => {
-
+        //obtengo datos filtrados de firestore
         const q = query(collection(firestore, "Productos"), where("industria", "==", "Nacional"))
         getDocs(q).then(snapshot => {
             const articulosNacionales = [];
@@ -23,13 +23,6 @@ function Nacionales() {
             .catch(error => {
                 console.error("Error al recuperar productos nacionales:", error);
             });
-        /*listaProductosNacionales()
-            .then(response => {
-                setArticulo(response)
-            })
-            .catch(error => {
-                console.error(error)
-            })*/
 
     }, [])
     return (
