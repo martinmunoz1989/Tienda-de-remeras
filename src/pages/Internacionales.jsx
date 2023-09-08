@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from "../Components/NavBar/NavBar";
-import { listaProductosInternacionales } from "../Components/AsyncMock/asyncMock";
 import Articulo from "../Components/Item/Item";
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import { firestore } from '../firebase/client';
@@ -9,7 +8,7 @@ function Internacionales() {
     const [articulo, setArticulo] = useState([])
     useEffect(() => {
 
-        //obtengo datos filtrados de firestore
+        //obtengo datos filtrados de internacional
         const q = query(collection(firestore, "Productos"), where("industria", "==", "Internacional"))
         getDocs(q).then(snapshot => {
             const articulosNacionales = [];
@@ -22,7 +21,7 @@ function Internacionales() {
             .catch(error => {
                 console.error("Error al recuperar productos internacionales", error);
             });
-        }, [])
+    }, [])
 
     return (
         <div className="d-flex flex-column min-vh-100">
