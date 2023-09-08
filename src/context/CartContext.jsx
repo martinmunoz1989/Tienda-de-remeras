@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, updateDoc } from "firebase/firestore";
 import { firestore } from "../firebase/client";
 
 export const ItemsContext = createContext({
@@ -13,7 +13,7 @@ export const ItemsContext = createContext({
 function ItemsProvider({ children }) {
     const [cart, setCart] = useState([]);
     const [itemsCant, setItemsCant] = useState(0);
-    const [order, setOrder] = useState({})
+    const [docId, setDocId] = useState({})
 
     //agrega al listado de items
 
@@ -71,22 +71,30 @@ function ItemsProvider({ children }) {
             id: item.id,
             descripcion: item.descripcion,
             precio: item.precio,
+
         }));
-    
+
         const totalValue = cart.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
-    
+
         const orderData = {
             buyer,
             items: itemsData,
             total: totalValue,
         };
-    
+        console.log(orderData);
+
         const ordersRef = collection(firestore, "Orders");
-    
+
         const docRef = await addDoc(ordersRef, orderData);
+        setDocId(docRef.id)
         return docRef.id;  // Trae el ID del documento creado en Firestore
     }
-    
+
+    /* const handleClickModificarDatos = ()=>{
+        const docRef = doc(firestore,"Orders", docId )
+        updateDoc(docRef, )
+    } */
+
 
     return <ItemsContext.Provider
         value={{

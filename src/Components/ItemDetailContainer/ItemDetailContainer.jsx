@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { listaProductosById } from "../AsyncMock/asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
 const ItemDetailContainer = () => {

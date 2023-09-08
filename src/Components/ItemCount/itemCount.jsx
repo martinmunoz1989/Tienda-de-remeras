@@ -1,14 +1,15 @@
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 
-function ItemCount({ id, imagen, descripcion, precio, onAdd }) {
+function ItemCount({ id, imagen, descripcion, precio, stock, onAdd }) {
     const [contador, setContador] = useState(0);
 
 
     const sumar = () => {
+        if(contador < stock){
         setContador(contador + 1);
     }
-
+}
     const restar = () => {
         if (contador > 0) {
             setContador(contador - 1);
@@ -21,6 +22,7 @@ function ItemCount({ id, imagen, descripcion, precio, onAdd }) {
             imagen,
             descripcion,
             precio,
+            stock,
             cantidad: contador
         });
     }

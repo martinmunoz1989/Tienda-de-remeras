@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { ItemsContext } from "../../context/CartContext";
 import NavBar from "../NavBar/NavBar";
-import { Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "../Cart/Cart.css"
 
 const Cart = () => {
@@ -17,7 +17,7 @@ const Cart = () => {
                     <h1>No hay items en el carrito</h1>
                     <Link to='/'>
                         <Button variant="dark">Regresar al Catalogo</Button>
-                        </Link>
+                    </Link>
                 </div>
             </div>);
     }
@@ -30,7 +30,7 @@ const Cart = () => {
             <div>
                 {cart.map(item => (
                     <div key={item.id} className="d-flex align-items-center justify-content-center mb-3">
-                        <ItemDetail {...item} className="button-spacing mr-3" />
+                        <ItemDetail {...item} showCloseButton={false} className="button-spacing mr-3" />
                         <p className="mr-3">Cantidad: {item.cantidad}</p>
                         <button onClick={() => removeItem(item.id)}>Eliminar</button>
                     </div>

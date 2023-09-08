@@ -34,7 +34,7 @@ const Checkout = () => {
     return (
         <div>
             <NavBar />
-            <h1>Checkout</h1>
+            <h1>Completa los datos para finalizar la compra</h1>
             <CheckoutForm onConfirm={handleClickOrderConfirmation} />
         </div>
     );
